@@ -11,6 +11,8 @@
 # testing
 /coverage
 
+/config/keys_dev.js
+
 # production
 /build
 
