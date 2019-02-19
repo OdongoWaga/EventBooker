@@ -14,7 +14,7 @@ const events = eventIds => {
             return {
                 ...event._doc,
                 id:event.id,
-                date: new Date(event._doc.date).toISOString,
+                date: new Date(event._doc.date).toISOString(),
                 creator:user.bind(this, event.creator)
             };
         });
@@ -61,7 +61,7 @@ module.exports ={
              title:args.eventInput.title,
              description:args.eventInput.description,
              price: +args.eventInput.price,
-             date: new Date (event._doc.date).toISOString,
+             date: new Date (event._doc.date).toISOString(),
              creator: '5c6bceb897733408aca8aa4b'
 
          });
@@ -72,7 +72,7 @@ module.exports ={
          .then(
          result => {
              createdEvent=  {...result._doc, _id:result._doc._id.toString(),
-            date: new Date(event._doc.date).toISOString,
+            date: new Date(event._doc.date).toISOString(),
             creator: user.bind(this,result._doc.creator)}
              return User.findById('5c6bceb897733408aca8aa4b');
              
