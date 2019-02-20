@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 
- class Auth extends Component {
+export class Events extends Component {
   render() {
     return (
-
+      <div>
         <h1>
-            Auth
+            Events
         </h1>
-    
+      </div>
     )
   }
 }
 
-export default Auth
+export default Events
