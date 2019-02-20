@@ -26,14 +26,15 @@ mongoose
 
 app.use(bodyParser.json());
 
-app.use((req,res, next)=> {
+app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Origin', 'POST,GET,OPTIONS');
-    res.setHeader('Access-Control-Allow-Origin', 'Content-Type, Authorization');
-    if(req.method ==='OPTIONS') {
-        return res.sendStatus(200);
+    res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    if (req.method === 'OPTIONS') {
+      return res.sendStatus(200);
     }
-});
+    next();
+  });
 
 app.use(isAuth)
 
