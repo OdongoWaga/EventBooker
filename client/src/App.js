@@ -14,7 +14,7 @@ class App extends Component {
       <React.Fragment>
       <Navigation />
 
-      <main> 
+      <main className="main-content"> 
       <Switch>
        <Redirect from="/" to ="/auth" exact />
        <Route path="/auth" component={Auth} />
