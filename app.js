@@ -23,7 +23,17 @@ mongoose
 .catch(err=> console.log(err)); 
 
 
+
 app.use(bodyParser.json());
+
+app.use((req,res, next)=> {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin', 'POST,GET,OPTIONS');
+    res.setHeader('Access-Control-Allow-Origin', 'Content-Type, Authorization');
+    if(req.method ==='OPTIONS') {
+        return res.sendStatus(200);
+    }
+});
 
 app.use(isAuth)
 
@@ -35,4 +45,4 @@ app.use('/graphql', graphqlHttp({
 }));
 
 
-app.listen(3000);
+app.listen(8000);
