@@ -27,19 +27,30 @@
      padding: 0;
      margin: 0;
      display: flex;
+     align-items: center; 
 } 
 
 .main-navigation_items li {
     margin: 0 1rem;
 }
 
-.main-navigation_items a {
+.main-navigation_items a,
+.main-navigation_items button {
     text-decoration: none;
     color: #ffffff;
+    padding: 0.25rem 0.5rem;
+    border: none;
+    font: inherit;
+    background: transparent;
+    cursor: pointer;
 }
 
 .main-navigation_items a:hover,
 .main-navigation_items a:active, 
-.main-navigation_items a.active {
+.main-navigation_items a.active,
+ .main-navigation_items button:hover,
+ .main-navigation_items button:active{
+    background: white;
     color:yellow;
+    border-radius: 5px;
 }
