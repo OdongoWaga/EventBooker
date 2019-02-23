@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Spinner from '../components/Spinner/Spinner';
 import AuthContext from '../context/auth-context';
+import bookingList from '../components/Bookings/BookingList';
 
 
 class BookingsPage extends Component {
@@ -105,7 +106,7 @@ class BookingsPage extends Component {
         {this.state.isLoading ? (
           <Spinner />
         ) : (
-          <BookingList
+          <bookingList
             bookings={this.state.bookings}
             onDelete={this.deleteBookingHandler}
           />
