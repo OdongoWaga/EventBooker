@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Spinner from '../components/Spinner/Spinner';
 import AuthContext from '../context/auth-context';
-import bookingList from '../components/Bookings/BookingList';
+import BookingList from '../components/Bookings/BookingList';
 
 
 class BookingsPage extends Component {
@@ -63,13 +63,16 @@ class BookingsPage extends Component {
     this.setState({ isLoading: true });
     const requestBody = {
       query: `
-          mutation {
-            cancelBooking(bookingId: "${bookingId}") {
+          mutation CancelBooking($id: ID!) {
+            cancelBooking(bookingId: $id) {
             _id
              title
             }
           }
-        `
+        `,
+      variables: {
+        id: bookingId
+      }
     };
 
     fetch('http://localhost:8000/graphql', {
@@ -106,7 +109,7 @@ class BookingsPage extends Component {
         {this.state.isLoading ? (
           <Spinner />
         ) : (
-          <bookingList
+          <BookingList
             bookings={this.state.bookings}
             onDelete={this.deleteBookingHandler}
           />
